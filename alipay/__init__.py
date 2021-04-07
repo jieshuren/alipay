@@ -516,6 +516,14 @@ class BaseAliPay:
         response_type = "alipay_fund_trans_order_query_response"
         return self.verified_sync_response(data, response_type)
 
+    def api_alipay_fund_account_query(self, alipay_user_id=None, account_type=None):
+
+        biz_content = {'alipay_user_id': alipay_user_id, 'account_type': account_type}
+
+        data = self.build_body("alipay.fund.account.query", biz_content)
+        response_type = "alipay_fund_account_query_response"
+        return self.verified_sync_response(data, response_type)
+
     def api_alipay_trade_order_settle(
         self,
         out_request_no,
